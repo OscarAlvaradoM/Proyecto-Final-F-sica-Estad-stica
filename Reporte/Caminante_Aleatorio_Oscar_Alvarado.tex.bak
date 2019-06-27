@@ -1,0 +1,184 @@
+\documentclass[twocolumn,letterpaper,aps,pra,10pt]{revtex4-1}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{calligra}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{amsmath,amssymb}
+\usepackage{subfigure}
+\usepackage{booktabs}
+\usepackage{tabulary}
+\usepackage{url}
+%\usepackage{mhchem}
+\spanishdecimal{.}
+\usepackage{ragged2e}
+\bibliographystyle{unsrt}
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{epsfig}
+\usepackage{pst-grad} % For gradients
+\usepackage{pst-plot} % For axes
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{hyperref}
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\begin{document}
+\renewcommand{\figurename}{{\bf Figura }}
+\renewcommand{\tablename}{{\bf Tabla}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+\begin{figure}
+\flushleft \includegraphics[width=1in]{unam_logo.jpg}
+\end{figure}
+\begin{figure}
+\flushright \includegraphics[width=1in]{logociencias.jpg}
+\end{figure}
+
+\lhead{}
+\chead{Física Estadística, Facultad de Ciencias, UNAM, 2019-2}
+\rhead{}
+\lfoot{Alvarado Morán Óscar Anuar} 
+\cfoot{\thepage}
+\rfoot{}
+
+\vspace*{-1cm}
+\title{Caminante aleatorio.}
+\author{Alvarado Morán Óscar Anuar}
+\affiliation{Física Estadística\\ Facultad de Ciencias, 2019-2 \\
+Universidad Nacional Autónoma de México}
+
+\begin{abstract}
+
+{\large Objetivos}:
+\begin{itemize}
+    \item El objetivo de este proyecto es analizar computacionalmente el comportamiento de un caminante aleatorio.
+   
+\end{itemize}
+\end{abstract}
+
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introducción}
+Como proyecto final del curso se pretendía realizar un ensayo sobre temas de vanguardia en el área de Física Estadística, sin embargo se optó por otra opción, la cuál fue realizar un programa computacional y/o simulación referente a la misma área. El problema que se pretendió resolver fue el siguiente: \\
+\\
+'Escriba un programa que genere una colección de trayectorias de una caminata aleatoria (en una dimensión), y que calcule la varianza de la posición como función del número de pasos del caminante
+\begin{itemize}
+\item[(a)] Incluya un análisis de resultados.
+
+\item[(b)] Aplique su programa para generar trayectorias que simulen algún sistema físico de su elección usando parámetros realistas y haga una discusión.'
+\end{itemize}
+
+A lo que al llegar al inciso (b) se pretendió resolver el otro problema que se había dejado como opción: \textit{Las caminatas aleatorias debidas a un potencial con la ecuación Langevin}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Resultados}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Caminante.png}
+\caption{Se muestra la trayectoria de un caminante aleatorio.}
+\label{Fig: Caminante}
+\end{figure}
+
+Los resultados obtenidos de simular una caminata aleatoria se muestran en la Figura \ref{Fig: Caminante}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Caminantes.png}
+\caption{Se muestran las trayectorias de 1,000 caminantes aleatorios.}
+\label{Fig: Caminantes}
+\end{figure}
+
+Los resultados obtenidos al simular las trayectorias de varios caminantes aleatorios se muestran en la Figura \ref{Fig: Caminantes}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{promedio.png}
+\caption{Se muestra el promedio de las trayectroias de los caminantes aleatorios mostrados en la Figura \ref{Fig: Caminantes}.}
+\label{Fig: Promedio}
+\end{figure}
+
+Ahora, para el inciso (a) se requirió obtener el promedio de dichas trayectorias, el cuál se muestra en la Figura \ref{Fig: Promedio}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{varianza.png}
+\caption{Se muestra la varianza de la posición como función de los pasos que dan los caminantes aleatorios de la Figura \ref{Fig: Caminantes}.}
+\label{Fig: Varianza}
+\end{figure}
+
+Como se observa en la Figura \ref{Fig: Promedio}, no nos dice nada el promedio, pero al obtener la varianza se nota un comportamiento lineal, tal como se muestra en la Figura \ref{Fig: Varianza}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Ajuste_lineal.png}
+\caption{Se muestra el ajuste lineal que se tiene para la varianza de los caminantes aleatorios mostrados en la Figura \ref{Fig: Caminantes}.}
+\label{Fig: Ajuste}
+\end{figure}
+
+Que evidentemente nos está diciendo que la varianza es lineal respecto al tiempo. El ajuste lineal junto con su ecuación se muestran en la Figura \ref{Fig: Ajuste}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Desviacion.png}
+\caption{Se muestran los caminantes aleatorios junto con su desviación estándar (rojo)}
+\label{Fig: Desviacion}
+\end{figure}
+
+Obtenemos además la desviación estándar que se muestra en rojo junto con los caminantes aleatorios en la Figura \ref{Fig: Desviacion}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Langevin1.png}
+\caption{Se muestran las trayectorias de partículas debido a un potencial como se muestra en la ecuación \ref{Langevin}(proceso de Wiener). Primero el potencial es cero, luego aumenta a $10^{4}$ y luego a $10^{12}$, de modo que mientras más grande el potencial, más se alejan las trayectroias del eje horizontal.}
+\label{Fig: Langevin}
+\end{figure}
+
+Para el inciso (b), una aplicación a la física directamente fue utilizar parte del problema 1 presentado como opción de programa a presentar. Se resuelve y simula la ecuación de Langevin sobreamortiguado, es decir, tenemos la siguient ecuación:
+\begin{equation}\label{Langevin}
+0 = -\nabla U(x) - \gamma \dot{x} + \sqrt{2\gamma k_{B}T}R(t)
+\end{equation}
+
+de modo que al aplicar un potencial se obtienen las trayectorias de caminantes aleatorios mostradas en la Figura \ref{Fig: Langevin}. Las gráficas se desvían más al aumentar el valor de $F_{0}$ en la ecuación \ref{Langevin}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Langevin2.png}
+\caption{Se muestran las trayectorias de partículas debido a un potencial como se muestra en la ecuación \ref{Langevin}. Primero el potencial es cero, luego aumenta a $10^{4}$ y luego a $10^{12}$, de modo que mientras más grande el potencial, más se alejan las trayectroias del eje horizontal.}
+\label{Fig: Langevin2}
+\end{figure}
+
+
+estas trayectorias se hicieron pensando en que se tiene un proceso de Weiner, es decir, metiendo un $\Delta t$ en la raiz de la ecuación \ref{Langevin}. Sin esta suposición se obtuvieron las gráficas de la Figura \ref{Fig: Langevin2}, donde observamos que su comportamiento es más "suave", cuando en el anterior caso las trayectorias son muy cerradas hacia el centro de la curva al principio. Los valores de $F_{0}$ para las gráficas de las Figuras \ref{Fig: Langevin} y \ref{Fig: Langevin2} son: $0$, $10^{4}$ y  $10^{12}$. Valores más altos ya no se pudieron graficar debido a la capacidad de cómputo.
+
+
+Como quizás no son muy claras las trayectorias que se siguen en las Figuras \ref{Fig: Langevin} y \ref{Fig: Langevin2}, se muestra cómo cambia debido a si tenemos un proceso de Wiener o no en las Figuras \ref{Fig: Langevin3} y \ref{Fig: Langevin4}, respectivamente. Observamos que en una las trayectorias se aplastan un poco más hacia el origen.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Langevin3.png}
+\caption{Trayectroas de partículas para $F_{0} = 0$ en la ecuación de Langevin y dado un proceso de Wiener.}
+\label{Fig: Langevin3}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Langevin4.png}
+\caption{Trayectroas de partículas para $F_{0} = 0$ en la ecuación de Langevin.}
+\label{Fig: Langevin4}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusiones}
+Se obtuvo la forma de simular conjuntos de caminatas aleatorias y obtener tanto el promedio como su varianza y desviación estándar. Se aplicó el conocimiento de lo mencionado anteriormente para fer el funcionamiento del movimiento aleatorio de partículas bajo un potencial del tipo $F_{0}|x|$ para varios valores de $F_{0}$. Se observa que las trayectorias se mueven dependiendo de la condición inicial, ya que como vimos, al tener una posición inicial del radio de la partícula (positivo), las trayectorias se desvían hacia abajo (negativos), pero al tener la posición inicial negativa se desvían hacia arriba(positivos).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{99}
+%\bibitem{desc} \url{http://www.physics.csbsju.edu/tk/370/jcalvert/dischg.htm.html}
+%\bibitem{pasch} Domínguez, Arturo., \textit{Derivation of the Paschen curve law ALPhA Laboratory Immersion}, 2014 
+\end{thebibliography}
+\end{document}
